@@ -124,19 +124,25 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-//        button9.setOnClickListener(new View.OnClickListener(){
+//        buttonMinus.setOnClickListener(new View.OnClickListener(){
 //            @Override
 //            public void onClick(View V){
 //                screen.setText(screen.getText()+"9");
 //            }
 //        });
-//        button9.setOnClickListener(new View.OnClickListener(){
+//        buttonMult.setOnClickListener(new View.OnClickListener(){
 //            @Override
 //            public void onClick(View V){
 //                screen.setText(screen.getText()+"9");
 //            }
 //        });
-//        button9.setOnClickListener(new View.OnClickListener(){
+//        buttonDiv.setOnClickListener(new View.OnClickListener(){
+//            @Override
+//            public void onClick(View V){
+//                screen.setText(screen.getText()+"9");
+//            }
+//        });
+//        buttonClear.setOnClickListener(new View.OnClickListener(){
 //            @Override
 //            public void onClick(View V){
 //                screen.setText(screen.getText()+"9");
