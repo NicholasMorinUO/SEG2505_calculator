@@ -12,9 +12,18 @@ public class MainActivity extends AppCompatActivity {
     Button button0, button1, button2, button3, button4, button5, button6, button7, button8, button9;
     Button buttonAdd, buttonMinus, buttonMult, buttonDiv, buttonEqual, buttonClear;
     TextView screen;
+    TextView lastOperation;
 
     float val1, val2;
     boolean add, equal;
+
+    private void resetLastOperation() {
+        if (lastOperation.getText() != "") {
+            lastOperation.setText(null);
+            screen.setText(null);
+        }
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,64 +47,75 @@ public class MainActivity extends AppCompatActivity {
         buttonClear = (Button) findViewById(R.id.btnClear);
 
         screen = (TextView) findViewById(R.id.result);
+        lastOperation = (TextView) findViewById(R.id.lastOperation);
 
         button0.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View V){
+                resetLastOperation();
                 screen.setText(screen.getText()+"0");
             }
         });
         button1.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View V){
+                resetLastOperation();
                 screen.setText(screen.getText()+"1");
             }
         });
         button2.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View V){
+                resetLastOperation();
                 screen.setText(screen.getText()+"2");
             }
         });
         button3.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View V){
+                resetLastOperation();
                 screen.setText(screen.getText()+"3");
             }
         });
         button4.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View V){
+                resetLastOperation();
                 screen.setText(screen.getText()+"4");
             }
         });
         button5.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View V){
+                resetLastOperation();
                 screen.setText(screen.getText()+"5");
             }
         });
         button6.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View V){
+                resetLastOperation();
                 screen.setText(screen.getText()+"6");
             }
         });
         button7.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View V){
+                resetLastOperation();
                 screen.setText(screen.getText()+"7");
             }
         });
         button8.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View V){
+                resetLastOperation();
                 screen.setText(screen.getText()+"8");
             }
         });
         button9.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View V){
+                resetLastOperation();
                 screen.setText(screen.getText()+"9");
             }
         });
@@ -105,6 +125,8 @@ public class MainActivity extends AppCompatActivity {
                 if (screen==null){
                     screen.setText(null);
                 }
+
+                resetLastOperation();
 
                 val1 = Float.parseFloat(screen.getText()+ " ");
 
@@ -118,8 +140,12 @@ public class MainActivity extends AppCompatActivity {
                 equal=true;
                 val2=Float.parseFloat(screen.getText()+ " ");
 
+                resetLastOperation();
+
                 if(add){
-                    screen.setText((val1+val2)+" ");
+                    lastOperation.setText(val1 + " + " + val2);
+                    screen.setText(Float.toString(val1 + val2));
+
                     add=false;
                 }
             }
@@ -127,24 +153,37 @@ public class MainActivity extends AppCompatActivity {
 //        buttonMinus.setOnClickListener(new View.OnClickListener(){
 //            @Override
 //            public void onClick(View V){
+//                resetLastOperation();
 //                screen.setText(screen.getText()+"9");
 //            }
 //        });
 //        buttonMult.setOnClickListener(new View.OnClickListener(){
 //            @Override
 //            public void onClick(View V){
+//               if (lastOperation.getText() != null) {
+//                 resetLastOperation();
+//                 lastOperation.setText(null);
+//                }
 //                screen.setText(screen.getText()+"9");
 //            }
 //        });
 //        buttonDiv.setOnClickListener(new View.OnClickListener(){
 //            @Override
 //            public void onClick(View V){
+//                if (lastOperation.getText() != null) {
+//                    resetLastOperation();
+//                    lastOperation.setText(null);
+//                }
 //                screen.setText(screen.getText()+"9");
 //            }
 //        });
 //        buttonClear.setOnClickListener(new View.OnClickListener(){
 //            @Override
 //            public void onClick(View V){
+//                if (lastOperation.getText() != null) {
+//                    resetLastOperation();
+//                    lastOperation.setText(null);
+//                }
 //                screen.setText(screen.getText()+"9");
 //            }
 //        });
