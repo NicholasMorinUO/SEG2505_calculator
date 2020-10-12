@@ -210,6 +210,7 @@ public class MainActivity extends AppCompatActivity {
                 screen.setText(null);
             }
         });
+
         buttonDiv.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View V){
@@ -232,8 +233,6 @@ public class MainActivity extends AppCompatActivity {
                 clear();
             }
         });
-
-
     }
 
 }
