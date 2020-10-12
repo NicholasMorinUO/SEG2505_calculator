@@ -106,7 +106,7 @@ public class MainActivity extends AppCompatActivity {
                     screen.setText(null);
                 }
 
-                val1 = Float.parseFloat(screen.getText()+ "+");
+                val1 = Float.parseFloat(screen.getText().toString());
 
                 add = true;
                 screen.setText(null);
@@ -117,7 +117,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View V){
                 equal=true;
-                val2=Float.parseFloat(screen.getText()+ "=");
+                val2=Float.parseFloat(screen.getText().toString());
 
                 if(add){
                     screen.setText((val1+val2)+" ");
@@ -144,7 +144,7 @@ public class MainActivity extends AppCompatActivity {
                     screen.setText(null);
                 }
 
-                val1 = Float.parseFloat(screen.getText()+ "-");
+                val1 = Float.parseFloat(screen.getText().toString());
 
                 minus = true;
                 screen.setText(null);
@@ -158,7 +158,7 @@ public class MainActivity extends AppCompatActivity {
                     screen.setText(null);
                 }
 
-                val1 = Float.parseFloat(screen.getText()+ "*");
+                val1 = Float.parseFloat(screen.getText().toString());
 
                 mult = true;
                 screen.setText(null);
@@ -171,7 +171,7 @@ public class MainActivity extends AppCompatActivity {
                 if (screen==null){
                     screen.setText(null);
                 }
-                val1 = Float.parseFloat(screen.getText()+ "/");
+                val1 = Float.parseFloat(screen.getText().toString());
 
                 div = true;
                 screen.setText(null);
@@ -182,7 +182,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View V){
                 clear = true;
-                screen.setText(screen.getText()+"Clear");
+                screen.setText("Clear");
                 screen.setText("");
             }
         });
