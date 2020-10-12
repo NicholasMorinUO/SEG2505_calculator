@@ -14,7 +14,7 @@ public class MainActivity extends AppCompatActivity {
     TextView screen;
 
     float val1, val2;
-    boolean add, equal;
+    boolean add, minus, equal;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -124,12 +124,19 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-//        buttonMinus.setOnClickListener(new View.OnClickListener(){
-//            @Override
-//            public void onClick(View V){
-//                screen.setText(screen.getText()+"9");
-//            }
-//        });
+        buttonMinus.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View V){
+                if (screen==null){
+                    screen.setText(null);
+                }
+
+                val1 = Float.parseFloat(screen.getText()+ " ");
+
+                add = true;
+                screen.setText(null);
+            }
+        });
 //        buttonMult.setOnClickListener(new View.OnClickListener(){
 //            @Override
 //            public void onClick(View V){
