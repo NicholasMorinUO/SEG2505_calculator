@@ -15,12 +15,19 @@ public class MainActivity extends AppCompatActivity {
     TextView lastOperation;
 
     float val1, val2;
-    boolean add, equal;
+    boolean add, equal, minus, mult, div;
+
+    private void clear() {
+        val1 = Float.NaN;
+        val2 = Float.NaN;
+        add = equal = minus = mult = div = false;
+        screen.setText(null);
+        lastOperation.setText(null);
+    }
 
     private void resetLastOperation() {
-        if (lastOperation.getText() != "") {
-            lastOperation.setText(null);
-            screen.setText(null);
+        if (lastOperation.getText() != "" && lastOperation.getText() != null) {
+            clear();
         }
     }
 
@@ -122,70 +129,111 @@ public class MainActivity extends AppCompatActivity {
         buttonAdd.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View V){
-                if (screen==null){
-                    screen.setText(null);
-                }
-
                 resetLastOperation();
-
-                val1 = Float.parseFloat(screen.getText()+ " ");
+                try {
+                    val1 = Float.parseFloat(screen.getText()+"");
+                } catch (Exception e) {
+                    return;
+                }
 
                 add = true;
                 screen.setText(null);
             }
         });
+
         buttonEqual.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View V){
-                equal=true;
-                val2=Float.parseFloat(screen.getText()+ " ");
-
+                try {
+                    val2=Float.parseFloat(screen.getText()+ "");
+                } catch (Exception e) {
+                    return;
+                }
                 resetLastOperation();
 
-                if(add){
-                    lastOperation.setText(val1 + " + " + val2);
-                    screen.setText(Float.toString(val1 + val2));
+                if (!Float.isNaN(val1) && !Float.isNaN(val2)) {
+                    if(add){
+                        lastOperation.setText(val1 + " + " + val2);
+                        screen.setText(Float.toString(val1 + val2));
 
-                    add=false;
+                        add=false;
+                    }
+                    if(minus){
+                        lastOperation.setText(val1 + " - " + val2);
+                        screen.setText(Float.toString(val1 - val2));
+
+                        minus=false;
+                    }
+                    if(mult){
+                        lastOperation.setText(val1 + " × " + val2);
+                        screen.setText(Float.toString(val1 * val2));
+
+                        mult=false;
+                    }
+                    if(div){
+                        lastOperation.setText(val1 + " ÷ " + val2);
+                        screen.setText(Float.toString(val1 / val2));
+
+                        div=false;
+                    }
                 }
             }
         });
-//        buttonMinus.setOnClickListener(new View.OnClickListener(){
-//            @Override
-//            public void onClick(View V){
-//                resetLastOperation();
-//                screen.setText(screen.getText()+"9");
-//            }
-//        });
-//        buttonMult.setOnClickListener(new View.OnClickListener(){
-//            @Override
-//            public void onClick(View V){
-//               if (lastOperation.getText() != null) {
-//                 resetLastOperation();
-//                 lastOperation.setText(null);
-//                }
-//                screen.setText(screen.getText()+"9");
-//            }
-//        });
-//        buttonDiv.setOnClickListener(new View.OnClickListener(){
-//            @Override
-//            public void onClick(View V){
-//                if (lastOperation.getText() != null) {
-//                    resetLastOperation();
-//                    lastOperation.setText(null);
-//                }
-//                screen.setText(screen.getText()+"9");
-//            }
-//        });
-//        buttonClear.setOnClickListener(new View.OnClickListener(){
-//            @Override
-//            public void onClick(View V){
-//                if (lastOperation.getText() != null) {
-//                    resetLastOperation();
-//                    lastOperation.setText(null);
-//                }
-//                screen.setText(screen.getText()+"9");
-//            }
-//        });
+        buttonMinus.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View V){
+                resetLastOperation();
+
+                try {
+                    val1 = Float.parseFloat(screen.getText()+"");
+                } catch (Exception e) {
+                    return;
+                }
+
+                minus = true;
+                screen.setText(null);
+            }
+        });
+
+        buttonMult.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View V){
+                resetLastOperation();
+
+                try {
+                    val1 = Float.parseFloat(screen.getText()+"");
+                } catch (Exception e) {
+                    return;
+                }
+
+                mult = true;
+                screen.setText(null);
+            }
+        });
+        buttonDiv.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View V){
+                resetLastOperation();
+
+                try {
+                    val1 = Float.parseFloat(screen.getText()+"");
+                } catch (Exception e) {
+                    return;
+                }
+
+                div = true;
+                screen.setText(null);
+            }
+        });
+
+        buttonClear.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View V){
+                clear();
+            }
+        });
+
+
     }
+
 }
