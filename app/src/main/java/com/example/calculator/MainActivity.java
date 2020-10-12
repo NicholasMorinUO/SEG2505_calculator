@@ -14,7 +14,7 @@ public class MainActivity extends AppCompatActivity {
     TextView screen;
 
     float val1, val2;
-    boolean add, minus, equal;
+    boolean add, equal, minus, mult, div, clear;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -106,21 +106,34 @@ public class MainActivity extends AppCompatActivity {
                     screen.setText(null);
                 }
 
-                val1 = Float.parseFloat(screen.getText()+ " ");
+                val1 = Float.parseFloat(screen.getText()+ "+");
 
                 add = true;
                 screen.setText(null);
             }
         });
+
         buttonEqual.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View V){
                 equal=true;
-                val2=Float.parseFloat(screen.getText()+ " ");
+                val2=Float.parseFloat(screen.getText()+ "=");
 
                 if(add){
                     screen.setText((val1+val2)+" ");
                     add=false;
+                }
+                if(minus){
+                    screen.setText((val1-val2)+" ");
+                    minus=false;
+                }
+                if(mult){
+                    screen.setText((val1*val2)+" ");
+                    mult=false;
+                }
+                if(div){
+                    screen.setText((val1/val2)+" ");
+                    div=false;
                 }
             }
         });
@@ -131,29 +144,48 @@ public class MainActivity extends AppCompatActivity {
                     screen.setText(null);
                 }
 
-                val1 = Float.parseFloat(screen.getText()+ " ");
+                val1 = Float.parseFloat(screen.getText()+ "-");
 
-                add = true;
+                minus = true;
                 screen.setText(null);
             }
         });
-//        buttonMult.setOnClickListener(new View.OnClickListener(){
-//            @Override
-//            public void onClick(View V){
-//                screen.setText(screen.getText()+"9");
-//            }
-//        });
-//        buttonDiv.setOnClickListener(new View.OnClickListener(){
-//            @Override
-//            public void onClick(View V){
-//                screen.setText(screen.getText()+"9");
-//            }
-//        });
-//        buttonClear.setOnClickListener(new View.OnClickListener(){
-//            @Override
-//            public void onClick(View V){
-//                screen.setText(screen.getText()+"9");
-//            }
-//        });
+
+        buttonMult.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View V){
+                if (screen==null){
+                    screen.setText(null);
+                }
+
+                val1 = Float.parseFloat(screen.getText()+ "*");
+
+                mult = true;
+                screen.setText(null);
+            }
+        });
+
+        buttonDiv.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View V){
+                if (screen==null){
+                    screen.setText(null);
+                }
+                val1 = Float.parseFloat(screen.getText()+ "/");
+
+                div = true;
+                screen.setText(null);
+            }
+        });
+
+        buttonClear.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View V){
+                clear = true;
+                screen.setText(screen.getText()+"Clear");
+                screen.setText("");
+            }
+        });
     }
+
 }
