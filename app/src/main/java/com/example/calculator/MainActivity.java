@@ -12,9 +12,25 @@ public class MainActivity extends AppCompatActivity {
     Button button0, button1, button2, button3, button4, button5, button6, button7, button8, button9;
     Button buttonAdd, buttonMinus, buttonMult, buttonDiv, buttonEqual, buttonClear;
     TextView screen;
+    TextView lastOperation;
 
     float val1, val2;
-    boolean add, equal, minus, mult, div, clear;
+    boolean add, equal, minus, mult, div;
+
+    private void clear() {
+        val1 = Float.NaN;
+        val2 = Float.NaN;
+        add = equal = minus = mult = div = false;
+        screen.setText(null);
+        lastOperation.setText(null);
+    }
+
+    private void resetLastOperation() {
+        if (lastOperation.getText() != "" && lastOperation.getText() != null) {
+            clear();
+        }
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,75 +54,87 @@ public class MainActivity extends AppCompatActivity {
         buttonClear = (Button) findViewById(R.id.btnClear);
 
         screen = (TextView) findViewById(R.id.result);
+        lastOperation = (TextView) findViewById(R.id.lastOperation);
 
         button0.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View V){
+                resetLastOperation();
                 screen.setText(screen.getText()+"0");
             }
         });
         button1.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View V){
+                resetLastOperation();
                 screen.setText(screen.getText()+"1");
             }
         });
         button2.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View V){
+                resetLastOperation();
                 screen.setText(screen.getText()+"2");
             }
         });
         button3.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View V){
+                resetLastOperation();
                 screen.setText(screen.getText()+"3");
             }
         });
         button4.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View V){
+                resetLastOperation();
                 screen.setText(screen.getText()+"4");
             }
         });
         button5.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View V){
+                resetLastOperation();
                 screen.setText(screen.getText()+"5");
             }
         });
         button6.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View V){
+                resetLastOperation();
                 screen.setText(screen.getText()+"6");
             }
         });
         button7.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View V){
+                resetLastOperation();
                 screen.setText(screen.getText()+"7");
             }
         });
         button8.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View V){
+                resetLastOperation();
                 screen.setText(screen.getText()+"8");
             }
         });
         button9.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View V){
+                resetLastOperation();
                 screen.setText(screen.getText()+"9");
             }
         });
         buttonAdd.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View V){
-                if (screen==null){
-                    screen.setText(null);
+                resetLastOperation();
+                try {
+                    val1 = Float.parseFloat(screen.getText()+"");
+                } catch (Exception e) {
+                    return;
                 }
-
-                val1 = Float.parseFloat(screen.getText()+ "+");
 
                 add = true;
                 screen.setText(null);
@@ -116,35 +144,51 @@ public class MainActivity extends AppCompatActivity {
         buttonEqual.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View V){
-                equal=true;
-                val2=Float.parseFloat(screen.getText()+ "=");
+                try {
+                    val2=Float.parseFloat(screen.getText()+ "");
+                } catch (Exception e) {
+                    return;
+                }
+                resetLastOperation();
 
-                if(add){
-                    screen.setText((val1+val2)+" ");
-                    add=false;
-                }
-                if(minus){
-                    screen.setText((val1-val2)+" ");
-                    minus=false;
-                }
-                if(mult){
-                    screen.setText((val1*val2)+" ");
-                    mult=false;
-                }
-                if(div){
-                    screen.setText((val1/val2)+" ");
-                    div=false;
+                if (!Float.isNaN(val1) && !Float.isNaN(val2)) {
+                    if(add){
+                        lastOperation.setText(val1 + " + " + val2);
+                        screen.setText(Float.toString(val1 + val2));
+
+                        add=false;
+                    }
+                    if(minus){
+                        lastOperation.setText(val1 + " - " + val2);
+                        screen.setText(Float.toString(val1 - val2));
+
+                        minus=false;
+                    }
+                    if(mult){
+                        lastOperation.setText(val1 + " × " + val2);
+                        screen.setText(Float.toString(val1 * val2));
+
+                        mult=false;
+                    }
+                    if(div){
+                        lastOperation.setText(val1 + " ÷ " + val2);
+                        screen.setText(Float.toString(val1 / val2));
+
+                        div=false;
+                    }
                 }
             }
         });
         buttonMinus.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View V){
-                if (screen==null){
-                    screen.setText(null);
-                }
+                resetLastOperation();
 
-                val1 = Float.parseFloat(screen.getText()+ "-");
+                try {
+                    val1 = Float.parseFloat(screen.getText()+"");
+                } catch (Exception e) {
+                    return;
+                }
 
                 minus = true;
                 screen.setText(null);
@@ -154,11 +198,13 @@ public class MainActivity extends AppCompatActivity {
         buttonMult.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View V){
-                if (screen==null){
-                    screen.setText(null);
-                }
+                resetLastOperation();
 
-                val1 = Float.parseFloat(screen.getText()+ "*");
+                try {
+                    val1 = Float.parseFloat(screen.getText()+"");
+                } catch (Exception e) {
+                    return;
+                }
 
                 mult = true;
                 screen.setText(null);
@@ -168,10 +214,13 @@ public class MainActivity extends AppCompatActivity {
         buttonDiv.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View V){
-                if (screen==null){
-                    screen.setText(null);
+                resetLastOperation();
+
+                try {
+                    val1 = Float.parseFloat(screen.getText()+"");
+                } catch (Exception e) {
+                    return;
                 }
-                val1 = Float.parseFloat(screen.getText()+ "/");
 
                 div = true;
                 screen.setText(null);
@@ -181,9 +230,7 @@ public class MainActivity extends AppCompatActivity {
         buttonClear.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View V){
-                clear = true;
-                screen.setText(screen.getText()+"Clear");
-                screen.setText("");
+                clear();
             }
         });
     }
