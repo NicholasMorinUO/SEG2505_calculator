@@ -59,84 +59,90 @@ public class MainActivity extends AppCompatActivity {
         button0.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View V){
-                resetLastOperation();
+                //resetLastOperation();
                 screen.setText(screen.getText()+"0");
             }
         });
         button1.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View V){
-                resetLastOperation();
+                //resetLastOperation();
                 screen.setText(screen.getText()+"1");
             }
         });
         button2.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View V){
-                resetLastOperation();
+                //resetLastOperation();
                 screen.setText(screen.getText()+"2");
             }
         });
         button3.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View V){
-                resetLastOperation();
+                //resetLastOperation();
                 screen.setText(screen.getText()+"3");
             }
         });
         button4.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View V){
-                resetLastOperation();
+                //resetLastOperation();
                 screen.setText(screen.getText()+"4");
             }
         });
         button5.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View V){
-                resetLastOperation();
+                //resetLastOperation();
                 screen.setText(screen.getText()+"5");
             }
         });
         button6.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View V){
-                resetLastOperation();
+                //resetLastOperation();
                 screen.setText(screen.getText()+"6");
             }
         });
         button7.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View V){
-                resetLastOperation();
+                //resetLastOperation();
                 screen.setText(screen.getText()+"7");
             }
         });
         button8.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View V){
-                resetLastOperation();
+                //resetLastOperation();
                 screen.setText(screen.getText()+"8");
             }
         });
         button9.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View V){
-                resetLastOperation();
+                //resetLastOperation();
                 screen.setText(screen.getText()+"9");
             }
         });
         buttonAdd.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View V){
-                resetLastOperation();
+                //System.out.println(val1 + "is val1");
+                //resetLastOperation();
+                //System.out.println(val1 + "is val1");
                 try {
-                    val1 = Float.parseFloat(screen.getText().toString());
+                    //System.out.println("hey");
+                    val1 = Float.parseFloat(screen.getText() + "");
                 } catch (Exception e) {
+                    //System.out.println(e);
                     return;
                 }
                 add = true;
                 screen.setText(null);
+                //System.out.println(val1 + "is val1");
+
             }
         });
 
@@ -147,12 +153,19 @@ public class MainActivity extends AppCompatActivity {
 
                 try {
                     val2=Float.parseFloat(screen.getText().toString());
+                    //System.out.println(val2 + "is val2");
+
                 } catch (Exception e) {
+
                     return;
                 }
-                resetLastOperation();
+                //System.out.println(val1 + "is val1");
+                //System.out.println(val2 + "is val2");
+                //resetLastOperation();
 
                 if (!Float.isNaN(val1) && !Float.isNaN(val2)) {
+                    System.out.println("inside first if");
+
                     if(add){
                         lastOperation.setText(val1 + " + " + val2);
                         screen.setText(Float.toString(val1 + val2));
@@ -177,13 +190,15 @@ public class MainActivity extends AppCompatActivity {
 
                         div=false;
                     }
+
                 }
+                //System.out.println("send an equal");
             }
         });
         buttonMinus.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View V){
-                resetLastOperation();
+                //resetLastOperation();
                 try {
                     val1 = Float.parseFloat(screen.getText().toString());
                 } catch (Exception e) {
@@ -197,7 +212,7 @@ public class MainActivity extends AppCompatActivity {
         buttonMult.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View V){
-                resetLastOperation();
+                //resetLastOperation();
                 try {
                     val1 = Float.parseFloat(screen.getText().toString());
                 } catch (Exception e) {
@@ -211,7 +226,7 @@ public class MainActivity extends AppCompatActivity {
         buttonDiv.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View V){
-                resetLastOperation();
+                //resetLastOperation();
 
                 try {
                     val1 = Float.parseFloat(screen.getText().toString());
