@@ -16,6 +16,7 @@ public class MainActivity extends AppCompatActivity {
 
     float val1, val2;
     boolean add, equal, minus, mult, div;
+    boolean cleared = true;
 
     private void clear() {
         val1 = Float.NaN;
@@ -25,9 +26,10 @@ public class MainActivity extends AppCompatActivity {
         lastOperation.setText(null);
     }
 
-    private void resetLastOperation() {
-        if (lastOperation.getText() != "" && lastOperation.getText() != null) {
+    private void checkCleared() {
+        if (!cleared) {
             clear();
+            cleared = true;
         }
     }
 
@@ -59,70 +61,70 @@ public class MainActivity extends AppCompatActivity {
         button0.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View V){
-                //resetLastOperation();
+                checkCleared();
                 screen.setText(screen.getText()+"0");
             }
         });
         button1.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View V){
-                //resetLastOperation();
+                checkCleared();
                 screen.setText(screen.getText()+"1");
             }
         });
         button2.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View V){
-                //resetLastOperation();
+                checkCleared();
                 screen.setText(screen.getText()+"2");
             }
         });
         button3.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View V){
-                //resetLastOperation();
+                checkCleared();
                 screen.setText(screen.getText()+"3");
             }
         });
         button4.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View V){
-                //resetLastOperation();
+                checkCleared();
                 screen.setText(screen.getText()+"4");
             }
         });
         button5.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View V){
-                //resetLastOperation();
+                checkCleared();
                 screen.setText(screen.getText()+"5");
             }
         });
         button6.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View V){
-                //resetLastOperation();
+                checkCleared();
                 screen.setText(screen.getText()+"6");
             }
         });
         button7.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View V){
-                //resetLastOperation();
+                checkCleared();
                 screen.setText(screen.getText()+"7");
             }
         });
         button8.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View V){
-                //resetLastOperation();
+                checkCleared();
                 screen.setText(screen.getText()+"8");
             }
         });
         button9.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View V){
-                //resetLastOperation();
+                checkCleared();
                 screen.setText(screen.getText()+"9");
             }
         });
@@ -130,8 +132,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View V){
                 //System.out.println(val1 + "is val1");
-                //resetLastOperation();
                 //System.out.println(val1 + "is val1");
+                cleared = true;
+
                 try {
                     //System.out.println("hey");
                     val1 = Float.parseFloat(screen.getText() + "");
@@ -161,10 +164,10 @@ public class MainActivity extends AppCompatActivity {
                 }
                 //System.out.println(val1 + "is val1");
                 //System.out.println(val2 + "is val2");
-                //resetLastOperation();
 
                 if (!Float.isNaN(val1) && !Float.isNaN(val2)) {
-                    System.out.println("inside first if");
+//                    System.out.println("inside first if");
+                    cleared = false;
 
                     if(add){
                         lastOperation.setText(val1 + " + " + val2);
@@ -198,7 +201,8 @@ public class MainActivity extends AppCompatActivity {
         buttonMinus.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View V){
-                //resetLastOperation();
+                cleared = true;
+
                 try {
                     val1 = Float.parseFloat(screen.getText().toString());
                 } catch (Exception e) {
@@ -212,7 +216,9 @@ public class MainActivity extends AppCompatActivity {
         buttonMult.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View V){
-                //resetLastOperation();
+
+                cleared = true;
+
                 try {
                     val1 = Float.parseFloat(screen.getText().toString());
                 } catch (Exception e) {
@@ -226,7 +232,7 @@ public class MainActivity extends AppCompatActivity {
         buttonDiv.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View V){
-                //resetLastOperation();
+                cleared = true;
 
                 try {
                     val1 = Float.parseFloat(screen.getText().toString());
@@ -242,6 +248,7 @@ public class MainActivity extends AppCompatActivity {
         buttonClear.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View V){
+                cleared = true;
                 clear();
             }
         });
