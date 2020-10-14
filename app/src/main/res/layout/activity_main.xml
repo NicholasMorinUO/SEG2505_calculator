@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
+
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -58,7 +59,7 @@
                     android:layout_width="10dp"
                     android:layout_height="match_parent"
                     android:layout_weight="20"
-                    android:background="@drawable/custom_rounded_corners"
+                    android:background="@drawable/selector1"
                     android:minWidth="48dip"
                     android:text="1"
                     android:textColor="#4B0082"
@@ -69,7 +70,7 @@
                     style="@style/MyButton"
                     android:layout_height="match_parent"
                     android:layout_weight="20"
-                    android:background="@drawable/custom_rounded_corners"
+                    android:background="@drawable/selector2"
                     android:text="2"
                     android:textColor="#4B0082"
                     android:textSize="30sp" />
@@ -77,7 +78,7 @@
                 <Button
                     android:id="@+id/btn3"
                     style="@style/MyButton"
-                    android:background="@drawable/custom_rounded_corners"
+                    android:background="@drawable/selector3"
                     android:text="3"
                     android:textColor="#4B0082"
                     android:textSize="30sp" />
@@ -85,7 +86,7 @@
                 <Button
                     android:id="@+id/btnDiv"
                     style="@style/MyButton"
-                    android:background="@drawable/custom_rounded_corners"
+                    android:background="@drawable/selector4"
                     android:text="÷"
                     android:textColor="#4B0082"
                     android:textSize="30sp" />
@@ -99,7 +100,7 @@
                 <Button
                     android:id="@+id/btn4"
                     style="@style/MyButton"
-                    android:background="@drawable/custom_rounded_corners"
+                    android:background="@drawable/selector5"
                     android:text="4"
                     android:textColor="#4B0082"
                     android:textSize="30sp" />
@@ -107,7 +108,7 @@
                 <Button
                     android:id="@+id/btn5"
                     style="@style/MyButton"
-                    android:background="@drawable/custom_rounded_corners"
+                    android:background="@drawable/selector6"
                     android:text="5"
                     android:textColor="#4B0082"
                     android:textSize="30sp" />
@@ -115,7 +116,7 @@
                 <Button
                     android:id="@+id/btn6"
                     style="@style/MyButton"
-                    android:background="@drawable/custom_rounded_corners"
+                    android:background="@drawable/selector7"
                     android:text="6"
                     android:textColor="#4B0082"
                     android:textSize="30sp" />
@@ -123,7 +124,7 @@
                 <Button
                     android:id="@+id/btnMult"
                     style="@style/MyButton"
-                    android:background="@drawable/custom_rounded_corners"
+                    android:background="@drawable/selector8"
                     android:text="×"
                     android:textColor="#4B0082"
                     android:textSize="30sp" />
@@ -137,7 +138,7 @@
                 <Button
                     android:id="@+id/btn7"
                     style="@style/MyButton"
-                    android:background="@drawable/custom_rounded_corners"
+                    android:background="@drawable/selector9"
                     android:text="7"
                     android:textColor="#4B0082"
                     android:textSize="30sp" />
@@ -145,7 +146,7 @@
                 <Button
                     android:id="@+id/btn8"
                     style="@style/MyButton"
-                    android:background="@drawable/custom_rounded_corners"
+                    android:background="@drawable/selector10"
                     android:text="8"
                     android:textColor="#4B0082"
                     android:textSize="30sp" />
@@ -153,7 +154,7 @@
                 <Button
                     android:id="@+id/btn9"
                     style="@style/MyButton"
-                    android:background="@drawable/custom_rounded_corners"
+                    android:background="@drawable/selector11"
                     android:text="9"
                     android:textColor="#4B0082"
                     android:textSize="30sp" />
@@ -161,7 +162,7 @@
                 <Button
                     android:id="@+id/btnMinus"
                     style="@style/MyButton"
-                    android:background="@drawable/custom_rounded_corners"
+                    android:background="@drawable/selector12"
                     android:text="-"
                     android:textColor="#4B0082"
                     android:textSize="30sp" />
@@ -175,7 +176,7 @@
                 <Button
                     android:id="@+id/btnClear"
                     style="@style/MyButton"
-                    android:background="@drawable/custom_rounded_corners"
+                    android:background="@drawable/selector13"
                     android:text="C"
                     android:textAllCaps="false"
                     android:textColor="#4B0082"
@@ -184,7 +185,7 @@
                 <Button
                     android:id="@+id/btn0"
                     style="@style/MyButton"
-                    android:background="@drawable/custom_rounded_corners"
+                    android:background="@drawable/selector"
                     android:text="0"
                     android:textColor="#4B0082"
                     android:textSize="30sp" />
@@ -192,7 +193,7 @@
                 <Button
                     android:id="@+id/btnEq"
                     style="@style/MyButton"
-                    android:background="@drawable/custom_rounded_corners"
+                    android:background="@drawable/selector14"
                     android:text="="
                     android:textColor="#4B0082"
                     android:textSize="30sp" />
@@ -200,7 +201,7 @@
                 <Button
                     android:id="@+id/btnPlus"
                     style="@style/MyButton"
-                    android:background="@drawable/custom_rounded_corners"
+                    android:background="@drawable/selector15"
                     android:text="+"
                     android:textColor="#4B0082"
                     android:textSize="30sp" />
@@ -209,5 +210,6 @@
 
         </TableLayout>
     </LinearLayout>
+
 
 </RelativeLayout>
