@@ -168,7 +168,7 @@ public class MainActivity extends AppCompatActivity {
                 if (!Float.isNaN(val1) && !Float.isNaN(val2)) {
 //                    System.out.println("inside first if");
                     cleared = false;
-
+                  
                     if(add){
                         lastOperation.setText(val1 + " + " + val2);
                         screen.setText(Float.toString(val1 + val2));
@@ -193,7 +193,6 @@ public class MainActivity extends AppCompatActivity {
 
                         div=false;
                     }
-
                 }
                 //System.out.println("send an equal");
             }
